@@ -5,12 +5,14 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies (including private ones)
-# This happens on YOUR machine with YOUR npm access
-COPY node_modules ./node_modules
+# Install dependencies (fresh install for production)
+RUN npm ci
 
-# Copy app code
+# Copy source code
 COPY . .
+
+# Build the app (e.g., compile TypeScript to JavaScript)
+RUN npm run build
 
 # Expose port
 EXPOSE 8080

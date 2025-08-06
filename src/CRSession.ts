@@ -59,7 +59,7 @@ export default class CRSession extends ConversationRelaySession {
     } catch (error) {
       this.logger.error(
         { error: (error as Error).message },
-        "Error calling Dify",
+        "Error calling Flowise",
       );
 
       this.sendToken(

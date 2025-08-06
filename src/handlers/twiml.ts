@@ -5,7 +5,7 @@ export default function twimlHandler(req: FastifyRequest, reply: FastifyReply) {
   <Response>
     <Connect>
       <ConversationRelay
-        url="wss://${req.server.config.NGROK_DOMAIN}/ws"
+        url="wss://${req.server.config.DOMAIN}/ws"
         welcomeGreeting="Hello and welcome to NightOwl Fitness! How can I be of service to you today?"
       />
     </Connect>

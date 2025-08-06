@@ -3,7 +3,7 @@
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'cr-dify'
+app = 'cr-flowiseai'
 primary_region = 'iad'
 
 [build]
@@ -53,4 +53,3 @@ primary_region = 'iad'
   cpu_kind = "shared"
   cpus = 1
   memory_mb = 256  # Free tier limit
-
