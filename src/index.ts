@@ -19,6 +19,7 @@ const start = async (): Promise<void> => {
 
   diContainer.register({
     flowiseApiKey: asValue(server.config.FLOWISE_API_KEY),
+    domain: asValue(server.config.DOMAIN),
     flowiseChatflowId: asValue(server.config.FLOWISE_CHATFLOW_ID),
     flowiseClient: asClass(clients.FlowiseClient).singleton(),
   });
