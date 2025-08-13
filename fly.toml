@@ -1,0 +1,58 @@
+# fly.toml app configuration file generated for cr-dify on 2025-07-21T13:46:38-07:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'cr-flowiseai'
+primary_region = 'iad'
+
+[build]
+  dockerfile = "Dockerfile"
+
+[[services]]
+  internal_port = 8080
+  protocol = "tcp"
+  auto_stop_machines = "stop"
+  auto_start_machines = true
+  min_machines_running = 0
+  script_checks = []
+
+  [services.concurrency]
+    hard_limit = 25
+    soft_limit = 20
+    type = "connections"
+
+  [[services.ports]]
+    force_https = true
+    handlers = ["http"]
+    port = 80
+
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = 443
+
+  [[services.tcp_checks]]
+    grace_period = "1s"
+    interval = "15s"
+    restart_limit = 0
+    timeout = "2s"
+    
+  [[services.http_checks]]
+    interval = "30s"
+    grace_period = "5s"
+    method = "get"
+    path = "/health"
+    protocol = "http"
+    timeout = "2s"
+    tls_skip_verify = false
+
+[env]
+  NODE_ENV = "production"
+  PORT = "8080"
+  LOG_LEVEL = "info"
+
+# FREE TIER CONFIGURATION
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory_mb = 256  # Free tier limit
