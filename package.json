@@ -18,21 +18,21 @@
     "@fastify/websocket": "^11.2.0",
     "@twilio-forward/conversationrelay-bridge": "^0.2.0",
     "awilix": "^12.0.5",
-    "dotenv": "^17.2.1",
-    "eventsource-parser": "^3.0.3",
-    "fastify": "^5.4.0",
+    "dotenv": "^17.2.2",
+    "eventsource-parser": "^3.0.6",
+    "fastify": "^5.6.0",
     "flowise-sdk": "^1.0.9",
     "pino-pretty": "^13.1.1",
-    "twilio": "^5.8.0",
+    "twilio": "^5.10.0",
     "ws": "^8.18.3"
   },
   "devDependencies": {
-    "@types/node": "^24.2.0",
+    "@types/node": "^24.5.2",
     "@types/ws": "^8.18.1",
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.9.2",
-    "vite": "^7.0.6"
+    "vite": "^7.1.6"
   },
   "engines": {
     "node": ">=20",
