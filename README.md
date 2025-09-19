@@ -26,6 +26,10 @@ For local development, make sure you have Node and [ngrok](https://ngrok.com/dow
 
 You are now ready to call your number!
 
+### Optional
+
+There are a few Twilio Functions code samples that can be used, found in `./sample-tools`. This will create a 4 tools to mimic a fitness class for listing classes, booking, cancelling, and finding your upcoming classes. Visit this directory for more information.
+
 ## Deployment
 
 We suggest using [Fly.IO](https://fly.io/) to host your application. It supports long-running WebSocket connections and is free (when you signup, you have to add your credit card, but you can deploy free servers for testing purposes).

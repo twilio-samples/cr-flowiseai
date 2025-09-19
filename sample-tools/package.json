@@ -1,0 +1,11 @@
+{
+  "name": "nightowl-fitness",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@twilio/runtime-handler": "2.0.1",
+    "crypto": "^1.0.1",
+    "dotenv": "^17.2.2",
+    "twilio": "^5.10"
+  }
+}
