@@ -57,6 +57,9 @@ export default class FlowiseClient {
     { prompt, sessionId, from }: FlowiseRequest,
     onStream: (last: boolean, answer?: string) => void,
   ): Promise<void> {
+    const start = Date.now();
+    let firstTime = true;
+
     const prediction = await this.client.createPrediction({
       chatflowId: this.chatflowId,
       question: prompt,
@@ -78,6 +81,10 @@ export default class FlowiseClient {
         );
       }
       if (chunk.event === "token") {
+        if (firstTime) {
+          firstTime = false;
+          this.logger.info(`First token latency: ${Date.now() - start}ms`);
+        }
         onStream(false, chunk.data);
       }
       if (chunk.event === "end") {
