@@ -12,7 +12,6 @@ const start = async (): Promise<void> => {
   const server = await createServer({
     port: parseInt(process.env.PORT || "3000", 10),
     twiml: handlers.twiml,
-    messages: handlers.messages,
     crSession: CRSession,
     envSchema: envSchema,
   });
