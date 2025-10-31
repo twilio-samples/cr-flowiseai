@@ -12,7 +12,6 @@ const start = async (): Promise<void> => {
   const server = await createServer({
     port: parseInt(process.env.PORT || "3000", 10),
     twiml: handlers.twiml,
-    messages: handlers.messages,
     crSession: CRSession,
     envSchema: envSchema,
   });
@@ -28,7 +27,7 @@ const start = async (): Promise<void> => {
     await server.listen({ port: server.config.PORT, host: "0.0.0.0" });
 
     const welcomeMessage = [
-      "🚀 Twilio - FlowiseAI Bridge Server Started!",
+      "\n🚀 Twilio - FlowiseAI Bridge Server Started!",
       "====================================",
       `Port: ${server.config.PORT}`,
       `Localhost: http://localhost:${server.config.PORT}`,
@@ -41,7 +40,7 @@ const start = async (): Promise<void> => {
       "Ready to receive calls! 📞",
     ];
 
-    console.log(welcomeMessage.join("\n"));
+    server.log.info(welcomeMessage.join("\n"));
   } catch (err) {
     server.log.error(err);
     process.exit(1);
